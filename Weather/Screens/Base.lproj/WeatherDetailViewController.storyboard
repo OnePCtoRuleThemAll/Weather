@@ -86,8 +86,9 @@
                                     <outlet property="dataSource" destination="Z13-vY-53s" id="NNg-fb-HyR"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="RP7-pB-Lhh">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="RP7-pB-Lhh">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iaU-BN-jVj"/>
@@ -103,6 +104,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Weather" id="Lgp-ly-ee5"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="RP7-pB-Lhh" id="aax-e9-Zg0"/>
                         <outlet property="dateLabel" destination="ULe-yO-cUd" id="GOp-yb-xiS"/>
                         <outlet property="feelsLikeLabel" destination="Z9Z-LC-x7C" id="lEm-I2-4kw"/>
                         <outlet property="locationLabel" destination="zbb-hc-77e" id="ZH5-lJ-ncx"/>

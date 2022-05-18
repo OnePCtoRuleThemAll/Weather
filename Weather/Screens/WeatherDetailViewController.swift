@@ -15,6 +15,8 @@ class WeatherDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -24,7 +26,7 @@ class WeatherDetailViewController: UIViewController {
     // MARK: - Variables
     
     var refreshControl = UIRefreshControl()
-    
+    var location: CurrentLocation?
     var days = [DailyWeather]()
     
     
@@ -33,39 +35,70 @@ class WeatherDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        let currentDate = Date()
-        dateLabel.text = formatter.string(from: currentDate)
-        
+        tableView.isHidden = true
+        activityIndicator.startAnimating()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+                
         LocationManager.shared.getLocation { [weak self] location, error in
             guard let self = self else {return}
             
             if let error = error {
+                self.presentAlert()
                 print("Error here")
             } else if let location = location {
-                RequestManager.shared.getWeatherData(for: location.coordinates) { response in
-                    
-                    switch response {
-                    case .success(let weatherData):
-                        self.setupView(with: weatherData.current)
-                        self.days = weatherData.days
-                        self.tableView.reloadData()
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                    }
-                }
-                
-                self.locationLabel.text = location.city
+                self.location = location
+                self.loadData()
             }
-            
-            
         }
         
         tableView.register(UINib(nibName: WeatherTableViewCell.classString, bundle: nil),
                            forCellReuseIdentifier: WeatherTableViewCell.classString)
     }
+    
+    @objc func loadData() {
+        guard let location = location else {
+            return
+        }
+        
+        RequestManager.shared.getWeatherData(for: location.coordinates) { response in
+            self.tableView.isHidden = false
+            self.refreshControl.endRefreshing()
+            self.activityIndicator.stopAnimating()
+            
+            switch response {
+            case .success(let weatherData):
+                self.setupView(with: weatherData.current)
+                self.days = weatherData.days
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    func presentAlert() {
+        let alertController = UIAlertController(title: "Location manager", message: "Location is disabled", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { action in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+            UIApplication.shared.canOpenURL(settingsUrl) else {
+                return
+            }
+            UIApplication.shared.open(settingsUrl, completionHandler: nil)
+        }
+        
+        alertController.addAction(okAction)
+        alertController.addAction(settingsAction)
+        
+        present(alertController, animated: true)
+    }
+    
     func setupView(with currentWeather: CurrentWeather) {
+        locationLabel.text = location?.city
+        dateLabel.text = DateFormatter.mediumDateFormater.string(from: currentWeather.date)
         temperatureLabel.text = currentWeather.temperatureWithCelsius
         feelsLikeLabel.text = currentWeather.feelsLikeWithCelsius
         weatherStatusLabel.text = currentWeather.weather.first?.description
