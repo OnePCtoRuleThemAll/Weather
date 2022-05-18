@@ -39,18 +39,35 @@ class WeatherDetailViewController: UIViewController {
         activityIndicator.startAnimating()
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+             
+        LocationManager.shared.onAuthorizationChange { authorization in
+            LocationManager.shared.getLocation { [weak self] location, error in
+                guard let self = self else {return}
                 
-        LocationManager.shared.getLocation { [weak self] location, error in
-            guard let self = self else {return}
-            
-            if let error = error {
-                self.presentAlert()
-                print("Error here")
-            } else if let location = location {
-                self.location = location
-                self.loadData()
+                if let error = error {
+
+                } else if let location = location {
+                    self.location = location
+                    self.loadData()
+                }
             }
         }
+        
+        if LocationManager.shared.denied {
+            presentAlert()
+        } else {
+            LocationManager.shared.getLocation { [weak self] location, error in
+                guard let self = self else {return}
+                
+                if let error = error {
+
+                } else if let location = location {
+                    self.location = location
+                    self.loadData()
+                }
+            }
+        }
+        
         
         tableView.register(UINib(nibName: WeatherTableViewCell.classString, bundle: nil),
                            forCellReuseIdentifier: WeatherTableViewCell.classString)

@@ -14,12 +14,6 @@ struct RequestManager {
     static let shared = RequestManager()
     
     func getWeatherData(for coordinates: CLLocationCoordinate2D, completion: @escaping (Result<WeatherResponse, AFError>) -> Void) {
-
-//        let parameters: [String: String] = ["lat": "\(coordinates.latitude)",
-//                                            "lon": "\(coordinates.longitude)",
-//                                            "exclude": "hourly,minutely,alerts",
-//                                            "appid": "7a55c30a1fb98bed4baedf14e2c9476e",
-//                                            "units": "metric"]
         
         let request = WeatherRequest(
             latitude: "\(coordinates.latitude)",

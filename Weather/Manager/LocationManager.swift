@@ -15,19 +15,28 @@ struct CurrentLocation {
 }
 
 typealias CityCompletionHandler = ((CurrentLocation?, Error?) -> Void)
+typealias AuthorizationHandler = ((Bool) -> Void)
 
 class LocationManager: CLLocationManager {
     
     static let shared = LocationManager()
     private var geocoder = CLGeocoder()
     
+    var denied: Bool {
+        LocationManager.shared.authorizationStatus == .denied
+    }
     var completion: CityCompletionHandler?
+    var authorizationCompletion: AuthorizationHandler?
     
     func getLocation(completion: CityCompletionHandler?) {
         self.completion = completion
         requestWhenInUseAuthorization()
         startUpdatingLocation()
         delegate = self
+    }
+    
+    func onAuthorizationChange(completion: @escaping AuthorizationHandler) {
+        authorizationCompletion = completion
     }
 }
 
@@ -57,8 +66,9 @@ extension LocationManager: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .denied:
-            print("denied")
+            authorizationCompletion?(false)
         case .authorizedWhenInUse, .authorizedAlways:
+            authorizationCompletion?(true)
             print("authorized")
         case .notDetermined:
             print("not yet")
