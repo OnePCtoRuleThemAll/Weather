@@ -14,6 +14,8 @@ class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    @IBOutlet weak var cellLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
@@ -22,9 +24,10 @@ class FavoritesViewController: UIViewController {
     func setupTable() {
         let defaults = UserDefaults.standard
         favorites = defaults.object(forKey: "Favorites") as? [String] ?? [String]()
-        tableView.reloadData()
-        tableView.isHidden = false
-        tableView.refreshControl = refreshControl
+        print(favorites)
+        self.tableView.reloadData()
+        self.tableView.isHidden = false
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "favoritesCell")
     }
 }
 
@@ -45,6 +48,3 @@ extension FavoritesViewController: UITableViewDataSource {
     }
 }
 
-extension FavoritesViewController: UITableViewDelegate {
-    
-}

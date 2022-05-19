@@ -31,7 +31,6 @@
 		51937A5628186E8500C80F44 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51937A5528186E8500C80F44 /* Formatter.swift */; };
 		51A24BF52836A65700EE423F /* QuoteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A24BF42836A65700EE423F /* QuoteViewController.storyboard */; };
 		51A24BF72836A66500EE423F /* QuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A24BF62836A66500EE423F /* QuoteViewController.swift */; };
-		51A24BF92836BA0C00EE423F /* AddQuote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51A24BF82836BA0C00EE423F /* AddQuote.storyboard */; };
 		51A24BFB2836BA1600EE423F /* AddQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A24BFA2836BA1600EE423F /* AddQuote.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +62,6 @@
 		51937A5528186E8500C80F44 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		51A24BF42836A65700EE423F /* QuoteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuoteViewController.storyboard; sourceTree = "<group>"; };
 		51A24BF62836A66500EE423F /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
-		51A24BF82836BA0C00EE423F /* AddQuote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddQuote.storyboard; sourceTree = "<group>"; };
 		51A24BFA2836BA1600EE423F /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuote.swift; sourceTree = "<group>"; };
 		C58BBAB82C8AD9BB5756E50F /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,7 +228,6 @@
 			children = (
 				51A24BF42836A65700EE423F /* QuoteViewController.storyboard */,
 				51A24BF62836A66500EE423F /* QuoteViewController.swift */,
-				51A24BF82836BA0C00EE423F /* AddQuote.storyboard */,
 				51A24BFA2836BA1600EE423F /* AddQuote.swift */,
 			);
 			path = Quote;
@@ -305,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				514EB18A27FDA1D3006B239F /* WeatherTableViewCell.xib in Resources */,
-				51A24BF92836BA0C00EE423F /* AddQuote.storyboard in Resources */,
 				51A24BF52836A65700EE423F /* QuoteViewController.storyboard in Resources */,
 				512A74A12836282C0073E8C4 /* FavoritesViewController.storyboard in Resources */,
 				512A74A628362D0A0073E8C4 /* TapBarController.storyboard in Resources */,

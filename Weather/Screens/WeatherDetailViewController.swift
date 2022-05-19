@@ -30,18 +30,7 @@ class WeatherDetailViewController: UIViewController {
     
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var errorMessageLabel: UILabel!
-    
-    @IBAction func reload(_ sender: Any) {
-        loadData()
-    }
-    
-    @IBAction func search(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SearchViewController", bundle: nil)
-        if let navigationController = storyboard.instantiateInitialViewController() {
-            present(navigationController, animated: true)
-        }
-    }
-    
+
     // MARK: - Variables
     var place: Place?
     var refreshControl = UIRefreshControl()
@@ -53,17 +42,6 @@ class WeatherDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func addToFavorites(_ sender: Any) {
-        let defaults = UserDefaults.standard
-        var placesArray = defaults.object(forKey: "Favorites") as? [String] ?? [String]()
-        if let currentPlace = location?.city {
-            if !placesArray.contains(currentPlace) {
-                placesArray.append(currentPlace)
-            }
-        }
-        defaults.set(placesArray, forKey: "Favorites")
-    }
-
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -86,14 +64,32 @@ class WeatherDetailViewController: UIViewController {
         
         setupTableView()
     }
-    
-    
 }
 
 //MARK: - Actions
-extension WeatherDetailViewController {
+private extension WeatherDetailViewController {
     
+    @IBAction func reload(_ sender: Any) {
+        loadData()
+    }
     
+    @IBAction func search(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SearchViewController", bundle: nil)
+        if let navigationController = storyboard.instantiateInitialViewController() {
+            present(navigationController, animated: true)
+        }
+    }
+    
+    @IBAction func addToFavorites(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        var placesArray = defaults.object(forKey: "Favorites") as? [String] ?? [String]()
+        if let currentPlace = location?.city {
+            if !placesArray.contains(currentPlace) {
+                placesArray.append(currentPlace)
+            }
+        }
+        defaults.set(placesArray, forKey: "Favorites")
+    }
 }
 
 //MARK: - setup functions
@@ -171,7 +167,6 @@ private extension WeatherDetailViewController {
         guard let location = location else {
             return
         }
-        
         state = .loading
         
         RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in

@@ -59,7 +59,7 @@ extension LocationManager: CLLocationManagerDelegate {
             }
             let currentLocation = CurrentLocation(city: city, coordinates: location.coordinate)
             self.completion?(currentLocation, nil)
-            print(city)
+            self.stopUpdatingLocation()
         }
     }
     
