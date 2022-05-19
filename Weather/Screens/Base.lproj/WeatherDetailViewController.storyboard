@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-FV-5hR">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="3YK-DM-JgD">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="293"/>
@@ -102,7 +103,18 @@
                             <constraint firstItem="EsO-FV-5hR" firstAttribute="trailing" secondItem="iaU-BN-jVj" secondAttribute="trailing" id="nLw-5T-NVy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weather" id="Lgp-ly-ee5"/>
+                    <tabBarItem key="tabBarItem" title="Weather detail" id="cpe-yh-5ga">
+                        <imageReference key="image" image="umbrella" catalog="system" symbolScale="large" renderingMode="template"/>
+                        <imageReference key="landscapeImage" image="umbrella" catalog="system" symbolScale="large" renderingMode="template"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Weather" id="Lgp-ly-ee5">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="LVi-DZ-dcR">
+                            <connections>
+                                <action selector="search:" destination="Z13-vY-53s" id="IlH-TE-KuW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="activityIndicator" destination="RP7-pB-Lhh" id="aax-e9-Zg0"/>
                         <outlet property="dateLabel" destination="ULe-yO-cUd" id="GOp-yb-xiS"/>
@@ -136,6 +148,7 @@
     </scenes>
     <resources>
         <image name="location.fill" catalog="system" width="128" height="121"/>
+        <image name="umbrella" catalog="system" width="122" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

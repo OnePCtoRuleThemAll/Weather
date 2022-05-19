@@ -23,6 +23,13 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var weatherStatusLabel: UILabel!
     @IBOutlet weak var feelsLikeLabel: UILabel!
     
+    @IBAction func search(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SearchViewController", bundle: nil)
+        if let navigationController = storyboard.instantiateInitialViewController() {
+            present(navigationController, animated: true)
+        }
+    }
+    
     // MARK: - Variables
     
     var refreshControl = UIRefreshControl()
@@ -34,65 +41,22 @@ class WeatherDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.isHidden = true
-        activityIndicator.startAnimating()
-        tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
              
+        activityIndicator.startAnimating()
+        setupTableView()
         LocationManager.shared.onAuthorizationChange { authorization in
-            LocationManager.shared.getLocation { [weak self] location, error in
-                guard let self = self else {return}
-                
-                if let error = error {
-
-                } else if let location = location {
-                    self.location = location
-                    self.loadData()
-                }
+            if authorization{
+                self.aquireLocation()
             }
         }
         
         if LocationManager.shared.denied {
             presentAlert()
         } else {
-            LocationManager.shared.getLocation { [weak self] location, error in
-                guard let self = self else {return}
-                
-                if let error = error {
-
-                } else if let location = location {
-                    self.location = location
-                    self.loadData()
-                }
-            }
+            aquireLocation()
         }
         
-        
-        tableView.register(UINib(nibName: WeatherTableViewCell.classString, bundle: nil),
-                           forCellReuseIdentifier: WeatherTableViewCell.classString)
-    }
-    
-    @objc func loadData() {
-        guard let location = location else {
-            return
-        }
-        
-        RequestManager.shared.getWeatherData(for: location.coordinates) { response in
-            self.tableView.isHidden = false
-            self.refreshControl.endRefreshing()
-            self.activityIndicator.stopAnimating()
-            
-            switch response {
-            case .success(let weatherData):
-                self.setupView(with: weatherData.current)
-                self.days = weatherData.days
-                self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
+        setupTableView()
     }
     
     func presentAlert() {
@@ -112,6 +76,26 @@ class WeatherDetailViewController: UIViewController {
         
         present(alertController, animated: true)
     }
+}
+
+//MARK: - Actions
+extension WeatherDetailViewController {
+    
+    
+}
+
+//MARK: - setup functions
+
+private extension WeatherDetailViewController {
+    func setupTableView() {
+        tableView.isHidden = true
+        activityIndicator.startAnimating()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        
+        tableView.register(UINib(nibName: WeatherTableViewCell.classString, bundle: nil),
+                           forCellReuseIdentifier: WeatherTableViewCell.classString)
+    }
     
     func setupView(with currentWeather: CurrentWeather) {
         locationLabel.text = location?.city
@@ -120,7 +104,45 @@ class WeatherDetailViewController: UIViewController {
         feelsLikeLabel.text = currentWeather.feelsLikeWithCelsius
         weatherStatusLabel.text = currentWeather.weather.first?.description
     }
+}
 
+//MARK: - Request and location handling
+private extension WeatherDetailViewController {
+    @objc func loadData() {
+        guard let location = location else {
+            return
+        }
+        
+        RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in
+            guard let self = self else {return}
+            
+            self.tableView.isHidden = false
+            self.refreshControl.endRefreshing()
+            self.activityIndicator.stopAnimating()
+            
+            switch response {
+            case .success(let weatherData):
+                self.setupView(with: weatherData.current)
+                self.days = weatherData.days
+                self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func aquireLocation() {
+        LocationManager.shared.getLocation { [weak self] location, error in
+            guard let self = self else {return}
+            
+            if let error = error {
+                self.activityIndicator.stopAnimating()
+            } else if let location = location {
+                self.location = location
+                self.loadData()
+            }
+        }
+    }
 }
 
 // MARK: - Table View Data Source
@@ -140,7 +162,6 @@ extension WeatherDetailViewController: UITableViewDataSource {
         
         return weatherCell
     }
-    
 }
 
 

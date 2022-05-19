@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1090D656353ACF9B1A119AB9 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39FBC1794B9442F320F5AB16 /* Pods_Weather.framework */; };
+		512A7498283627B60073E8C4 /* MapScreenController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512A7497283627B60073E8C4 /* MapScreenController.storyboard */; };
+		512A749A283627C30073E8C4 /* MapScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A7499283627C30073E8C4 /* MapScreenController.swift */; };
+		512A749C283627E00073E8C4 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512A749B283627E00073E8C4 /* SearchViewController.storyboard */; };
+		512A749E283627EC0073E8C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A749D283627EC0073E8C4 /* SearchViewController.swift */; };
+		512A74A12836282C0073E8C4 /* FavoritesViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512A74A02836282C0073E8C4 /* FavoritesViewController.storyboard */; };
+		512A74A3283628350073E8C4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512A74A2283628350073E8C4 /* FavoritesViewController.swift */; };
+		512A74A628362D0A0073E8C4 /* TapBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 512A74A528362D0A0073E8C4 /* TapBarController.storyboard */; };
 		514EB17127F45A00006B239F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514EB17027F45A00006B239F /* AppDelegate.swift */; };
 		514EB17827F45A00006B239F /* WeatherDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 514EB17627F45A00006B239F /* WeatherDetailViewController.storyboard */; };
 		514EB17A27F45A02006B239F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 514EB17927F45A02006B239F /* Assets.xcassets */; };
@@ -26,6 +33,13 @@
 /* Begin PBXFileReference section */
 		2DBA28E158DBDB6A491F21D8 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
 		39FBC1794B9442F320F5AB16 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		512A7497283627B60073E8C4 /* MapScreenController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapScreenController.storyboard; sourceTree = "<group>"; };
+		512A7499283627C30073E8C4 /* MapScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenController.swift; sourceTree = "<group>"; };
+		512A749B283627E00073E8C4 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		512A749D283627EC0073E8C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		512A74A02836282C0073E8C4 /* FavoritesViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesViewController.storyboard; sourceTree = "<group>"; };
+		512A74A2283628350073E8C4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		512A74A528362D0A0073E8C4 /* TapBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TapBarController.storyboard; sourceTree = "<group>"; };
 		514EB16D27F45A00006B239F /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		514EB17027F45A00006B239F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		514EB17727F45A00006B239F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/WeatherDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -65,6 +79,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		512A7491283626FD0073E8C4 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				512A749B283627E00073E8C4 /* SearchViewController.storyboard */,
+				512A749D283627EC0073E8C4 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		512A74922836270E0073E8C4 /* MapScreen */ = {
+			isa = PBXGroup;
+			children = (
+				512A7497283627B60073E8C4 /* MapScreenController.storyboard */,
+				512A7499283627C30073E8C4 /* MapScreenController.swift */,
+			);
+			path = MapScreen;
+			sourceTree = "<group>";
+		};
+		512A749F283627FE0073E8C4 /* Favorits */ = {
+			isa = PBXGroup;
+			children = (
+				512A74A02836282C0073E8C4 /* FavoritesViewController.storyboard */,
+				512A74A2283628350073E8C4 /* FavoritesViewController.swift */,
+			);
+			path = Favorits;
+			sourceTree = "<group>";
+		};
+		512A74A428362CF20073E8C4 /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				512A74A528362D0A0073E8C4 /* TapBarController.storyboard */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
 		514EB16427F45A00006B239F = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +149,10 @@
 		514EB18427FD9923006B239F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				512A74A428362CF20073E8C4 /* TapBar */,
+				512A749F283627FE0073E8C4 /* Favorits */,
+				512A74922836270E0073E8C4 /* MapScreen */,
+				512A7491283626FD0073E8C4 /* Search */,
 				51570D382806CDA70071AD30 /* Cell */,
 				514EB18C27FDB191006B239F /* WeatherDetailViewController.swift */,
 				514EB17627F45A00006B239F /* WeatherDetailViewController.storyboard */,
@@ -229,9 +282,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				514EB18A27FDA1D3006B239F /* WeatherTableViewCell.xib in Resources */,
+				512A74A12836282C0073E8C4 /* FavoritesViewController.storyboard in Resources */,
+				512A74A628362D0A0073E8C4 /* TapBarController.storyboard in Resources */,
 				514EB17D27F45A02006B239F /* LaunchScreen.storyboard in Resources */,
 				514EB17A27F45A02006B239F /* Assets.xcassets in Resources */,
+				512A7498283627B60073E8C4 /* MapScreenController.storyboard in Resources */,
 				514EB17827F45A00006B239F /* WeatherDetailViewController.storyboard in Resources */,
+				512A749C283627E00073E8C4 /* SearchViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				51937A5328180C1600C80F44 /* WeatherRequest.swift in Sources */,
+				512A749E283627EC0073E8C4 /* SearchViewController.swift in Sources */,
 				514EB18927FDA1D3006B239F /* WeatherTableViewCell.swift in Sources */,
+				512A749A283627C30073E8C4 /* MapScreenController.swift in Sources */,
+				512A74A3283628350073E8C4 /* FavoritesViewController.swift in Sources */,
 				514EB17127F45A00006B239F /* AppDelegate.swift in Sources */,
 				51937A5628186E8500C80F44 /* Formatter.swift in Sources */,
 				51937A4D2806E04E00C80F44 /* LocationManager.swift in Sources */,
@@ -447,7 +507,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need it for full functionality";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = WeatherDetailViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = TapBarController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -479,7 +539,7 @@
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need it for full functionality";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = WeatherDetailViewController;
+				INFOPLIST_KEY_UIMainStoryboardFile = TapBarController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
