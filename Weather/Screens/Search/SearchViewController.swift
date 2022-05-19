@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    @IBOutlet weak var tablView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
     private let searchManager = SearchManager()
@@ -38,7 +38,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchManager.getLocalSearch(from: searchText) { places in
             self.places = places
-            self.tablView.reloadData()
+            self.tableView.reloadData()
         }
     }
 }

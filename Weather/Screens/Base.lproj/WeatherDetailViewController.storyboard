@@ -12,11 +12,46 @@
         <!--Weather-->
         <scene sceneID="T8l-Pg-awQ">
             <objects>
-                <viewController storyboardIdentifier="WeatherDetailViewController" id="Z13-vY-53s" customClass="WeatherDetailViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="WeatherDetailViewController" storyboardIdentifier="WeatherDetailViewController" id="Z13-vY-53s" customClass="WeatherDetailViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wZo-Cl-lgM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" restorationIdentifier="emptyView" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-sq-euI" userLabel="emptyView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTC-C1-PuR">
+                                        <rect key="frame" x="24" y="352.5" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab1-dr-PW9">
+                                        <rect key="frame" x="161" y="389" width="92" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Refresh"/>
+                                        <connections>
+                                            <action selector="reload:" destination="Z13-vY-53s" eventType="touchUpInside" id="DHO-Xe-8Yv"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ItE-78-XaG">
+                                        <rect key="frame" x="194" y="305.5" width="26" height="26"/>
+                                        <imageReference key="image" image="nosign" catalog="system" symbolScale="large" renderingMode="template"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ab1-dr-PW9" firstAttribute="top" secondItem="aTC-C1-PuR" secondAttribute="bottom" constant="16" id="7bt-GS-TKz"/>
+                                    <constraint firstItem="ab1-dr-PW9" firstAttribute="leading" secondItem="xyp-sq-euI" secondAttribute="leading" constant="161" id="Aix-6B-9LU"/>
+                                    <constraint firstAttribute="trailing" secondItem="ab1-dr-PW9" secondAttribute="trailing" constant="161" id="BRB-fm-OIn"/>
+                                    <constraint firstAttribute="trailing" secondItem="aTC-C1-PuR" secondAttribute="trailing" constant="24" id="W1G-JM-psy"/>
+                                    <constraint firstItem="ItE-78-XaG" firstAttribute="centerX" secondItem="aTC-C1-PuR" secondAttribute="centerX" id="Wdb-bW-qOl"/>
+                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="centerX" secondItem="xyp-sq-euI" secondAttribute="centerX" id="fBo-Sn-mIi"/>
+                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="top" secondItem="ItE-78-XaG" secondAttribute="bottom" constant="24" id="g5n-3V-k7D"/>
+                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="leading" secondItem="xyp-sq-euI" secondAttribute="leading" constant="24" id="ipB-2I-65T"/>
+                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="centerY" secondItem="xyp-sq-euI" secondAttribute="centerY" id="mGl-g4-e4c"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EsO-FV-5hR">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -91,41 +126,6 @@
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <view contentMode="scaleToFill" restorationIdentifier="emptyView" translatesAutoresizingMaskIntoConstraints="NO" id="xyp-sq-euI" userLabel="emptyView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTC-C1-PuR">
-                                        <rect key="frame" x="24" y="352.5" width="366" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab1-dr-PW9">
-                                        <rect key="frame" x="161" y="389" width="92" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Refresh"/>
-                                        <connections>
-                                            <action selector="reload:" destination="Z13-vY-53s" eventType="touchUpInside" id="DHO-Xe-8Yv"/>
-                                        </connections>
-                                    </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ItE-78-XaG">
-                                        <rect key="frame" x="194" y="305.5" width="26" height="26"/>
-                                        <imageReference key="image" image="nosign" catalog="system" symbolScale="large" renderingMode="template"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstItem="ab1-dr-PW9" firstAttribute="top" secondItem="aTC-C1-PuR" secondAttribute="bottom" constant="16" id="7bt-GS-TKz"/>
-                                    <constraint firstItem="ab1-dr-PW9" firstAttribute="leading" secondItem="xyp-sq-euI" secondAttribute="leading" constant="161" id="Aix-6B-9LU"/>
-                                    <constraint firstAttribute="trailing" secondItem="ab1-dr-PW9" secondAttribute="trailing" constant="161" id="BRB-fm-OIn"/>
-                                    <constraint firstAttribute="trailing" secondItem="aTC-C1-PuR" secondAttribute="trailing" constant="24" id="W1G-JM-psy"/>
-                                    <constraint firstItem="ItE-78-XaG" firstAttribute="centerX" secondItem="aTC-C1-PuR" secondAttribute="centerX" id="Wdb-bW-qOl"/>
-                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="centerX" secondItem="xyp-sq-euI" secondAttribute="centerX" id="fBo-Sn-mIi"/>
-                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="top" secondItem="ItE-78-XaG" secondAttribute="bottom" constant="24" id="g5n-3V-k7D"/>
-                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="leading" secondItem="xyp-sq-euI" secondAttribute="leading" constant="24" id="ipB-2I-65T"/>
-                                    <constraint firstItem="aTC-C1-PuR" firstAttribute="centerY" secondItem="xyp-sq-euI" secondAttribute="centerY" id="mGl-g4-e4c"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iaU-BN-jVj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -147,6 +147,11 @@
                         <imageReference key="landscapeImage" image="umbrella" catalog="system" symbolScale="large" renderingMode="template"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Weather" id="Lgp-ly-ee5">
+                        <barButtonItem key="leftBarButtonItem" title="Add to favorites" image="hand.thumbsup" catalog="system" id="4Kd-BR-N87">
+                            <connections>
+                                <action selector="addToFavorites:" destination="Z13-vY-53s" id="vLn-4P-Xq7"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="LVi-DZ-dcR">
                             <connections>
                                 <action selector="search:" destination="Z13-vY-53s" id="IlH-TE-KuW"/>
@@ -188,6 +193,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="location.fill" catalog="system" width="128" height="121"/>
         <image name="nosign" catalog="system" width="128" height="121"/>
         <image name="umbrella" catalog="system" width="122" height="128"/>

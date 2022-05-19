@@ -53,7 +53,17 @@ class WeatherDetailViewController: UIViewController {
         }
     }
     
-    
+    @IBAction func addToFavorites(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        var placesArray = defaults.object(forKey: "Favorites") as? [String] ?? [String]()
+        if let currentPlace = location?.city {
+            if !placesArray.contains(currentPlace) {
+                placesArray.append(currentPlace)
+            }
+        }
+        defaults.set(placesArray, forKey: "Favorites")
+    }
+
     // MARK: - Lifecycle
     
     override func viewDidLoad() {

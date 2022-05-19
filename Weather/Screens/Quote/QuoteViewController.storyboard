@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="puW-dY-6bZ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Quote-->
+        <scene sceneID="osE-wV-WiR">
+            <objects>
+                <viewController storyboardIdentifier="quotes" id="puW-dY-6bZ" customClass="QuoteViewController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XII-bY-b2N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyc-px-DZz">
+                                <rect key="frame" x="24" y="124" width="366" height="37.5"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVo-1D-e6p">
+                                <rect key="frame" x="80" y="715" width="254" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reload"/>
+                                <connections>
+                                    <action selector="enterAction:" destination="puW-dY-6bZ" eventType="touchUpInside" id="CjK-tz-Sjx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBz-H6-NMv">
+                                <rect key="frame" x="30" y="762" width="354" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="New quote"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jg6-w6-L8W"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Hyc-px-DZz" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="24" id="0fM-hR-ubY"/>
+                            <constraint firstItem="Jg6-w6-L8W" firstAttribute="bottom" secondItem="GBz-H6-NMv" secondAttribute="bottom" constant="20" id="IAj-Rq-2e3"/>
+                            <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="GBz-H6-NMv" secondAttribute="trailing" constant="30" id="Ncp-vU-Vey"/>
+                            <constraint firstItem="yVo-1D-e6p" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="80" id="RTa-ve-fTV"/>
+                            <constraint firstItem="GBz-H6-NMv" firstAttribute="top" secondItem="yVo-1D-e6p" secondAttribute="bottom" constant="16" id="WT0-pN-RHe"/>
+                            <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="yVo-1D-e6p" secondAttribute="trailing" constant="80" id="XI5-vS-Zup"/>
+                            <constraint firstItem="Hyc-px-DZz" firstAttribute="top" secondItem="Jg6-w6-L8W" secondAttribute="top" constant="80" id="gdg-o6-Ux2"/>
+                            <constraint firstItem="GBz-H6-NMv" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="30" id="qgk-GG-cxe"/>
+                            <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="Hyc-px-DZz" secondAttribute="trailing" constant="24" id="w0I-h9-AQ0"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Quote" image="bubble.left" catalog="system" id="E1I-MU-uve"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="quoteLable" destination="Hyc-px-DZz" id="tTk-Rh-Vok"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OA3-8r-Bev" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-649.27536231884062" y="94.419642857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bubble.left" catalog="system" width="128" height="110"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

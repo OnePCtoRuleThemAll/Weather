@@ -68,7 +68,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tablView" destination="WzH-gI-WbX" id="5UN-Gw-L7F"/>
+                        <outlet property="tableView" destination="WzH-gI-WbX" id="nzt-e4-pio"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
