@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreLocation
-import MapKit
 
 struct CurrentLocation {
     
@@ -22,7 +21,6 @@ class LocationManager: CLLocationManager {
     
     static let shared = LocationManager()
     private var geocoder = CLGeocoder()
-    private let searchCompleter = MKLocalSearchCompleter()
     
     var denied: Bool {
         LocationManager.shared.authorizationStatus == .denied
@@ -37,33 +35,8 @@ class LocationManager: CLLocationManager {
         delegate = self
     }
     
-    func getLocalSearch(from query: String) {
-        searchCompleter.resultTypes = .address
-        searchCompleter.queryFragment = query
-        searchCompleter.delegate = self
-    }
-    
     func onAuthorizationChange(completion: @escaping AuthorizationHandler) {
         authorizationCompletion = completion
-    }
-}
-
-struct Place {
-    let city: String
-    let country: String
-}
-
-extension LocationManager: MKLocalSearchCompleterDelegate {
-    
-    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
-        
-        let places = completer.results
-            .filter { !$0.title.isEmpty }
-            .map { $0.title.components(separatedBy: ",") }
-            .filter { $0.count > 1 }
-            .map { Place(city: $0[0], country: $0[1])}
-        
-         print(places)
     }
 }
 
