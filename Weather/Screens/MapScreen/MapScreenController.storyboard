@@ -12,18 +12,32 @@
         <!--MapScreenController-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MapScreenController" title="MapScreenController" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapScreenController" title="MapScreenController" id="Y6W-OH-hqX" customClass="MapScreenController" customModule="Weather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2HP-PY-PXY">
+                                <rect key="frame" x="0.0" y="68" width="414" height="721"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2HP-PY-PXY" secondAttribute="trailing" id="ESc-dr-0fy"/>
+                            <constraint firstItem="2HP-PY-PXY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Fq9-rq-uPv"/>
+                            <constraint firstItem="2HP-PY-PXY" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="Iqf-B3-nW8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2HP-PY-PXY" secondAttribute="bottom" constant="24" id="rfy-Wz-UbR"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="lzm-iE-1vL">
                         <imageReference key="image" image="map" catalog="system" symbolScale="large" renderingMode="template"/>
                         <imageReference key="landscapeImage" image="map" catalog="system" symbolScale="large" renderingMode="template"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="2HP-PY-PXY" id="KJE-2e-fJQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

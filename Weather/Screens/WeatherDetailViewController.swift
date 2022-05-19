@@ -8,6 +8,11 @@
 import UIKit
 import CoreLocation
 
+enum State {
+    case loading
+    case error(String)
+    case success(WeatherResponse)
+}
 
 class WeatherDetailViewController: UIViewController {
 
@@ -23,6 +28,13 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var weatherStatusLabel: UILabel!
     @IBOutlet weak var feelsLikeLabel: UILabel!
     
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var errorMessageLabel: UILabel!
+    
+    @IBAction func reload(_ sender: Any) {
+        loadData()
+    }
+    
     @IBAction func search(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SearchViewController", bundle: nil)
         if let navigationController = storyboard.instantiateInitialViewController() {
@@ -35,6 +47,11 @@ class WeatherDetailViewController: UIViewController {
     var refreshControl = UIRefreshControl()
     var location: CurrentLocation?
     var days = [DailyWeather]()
+    var state: State = .loading {
+        didSet {
+            reloadState()
+        }
+    }
     
     
     // MARK: - Lifecycle
@@ -42,8 +59,9 @@ class WeatherDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
              
-        activityIndicator.startAnimating()
         setupTableView()
+        aquireLocation()
+        
         LocationManager.shared.onAuthorizationChange { authorization in
             if authorization{
                 self.aquireLocation()
@@ -59,23 +77,7 @@ class WeatherDetailViewController: UIViewController {
         setupTableView()
     }
     
-    func presentAlert() {
-        let alertController = UIAlertController(title: "Location manager", message: "Location is disabled", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
-        
-        let settingsAction = UIAlertAction(title: "Settings", style: .default) { action in
-            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
-            UIApplication.shared.canOpenURL(settingsUrl) else {
-                return
-            }
-            UIApplication.shared.open(settingsUrl, completionHandler: nil)
-        }
-        
-        alertController.addAction(okAction)
-        alertController.addAction(settingsAction)
-        
-        present(alertController, animated: true)
-    }
+    
 }
 
 //MARK: - Actions
@@ -104,6 +106,53 @@ private extension WeatherDetailViewController {
         feelsLikeLabel.text = currentWeather.feelsLikeWithCelsius
         weatherStatusLabel.text = currentWeather.weather.first?.description
     }
+    
+    func presentAlert() {
+        let alertController = UIAlertController(title: "Location manager", message: "Location is disabled", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { action in
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString),
+            UIApplication.shared.canOpenURL(settingsUrl) else {
+                return
+            }
+            UIApplication.shared.open(settingsUrl, completionHandler: nil)
+        }
+        
+        alertController.addAction(okAction)
+        alertController.addAction(settingsAction)
+        
+        present(alertController, animated: true)
+    }
+    
+    func reloadState() {
+        
+        switch state {
+            
+        case .loading:
+            activityIndicator.startAnimating()
+            tableView.isHidden = true
+            emptyView.isHidden = true
+            
+        case .error(let message):
+            refreshControl.endRefreshing()
+            activityIndicator.stopAnimating()
+            tableView.isHidden = true
+            emptyView.isHidden = false
+            errorMessageLabel.text = message
+            
+        case .success(let weatherData):
+            refreshControl.endRefreshing()
+            activityIndicator.stopAnimating()
+            tableView.isHidden = false
+            emptyView.isHidden = true
+            setupView(with: weatherData.current)
+            days = weatherData.days
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+
+            
+        }
+    }
 }
 
 //MARK: - Request and location handling
@@ -113,20 +162,17 @@ private extension WeatherDetailViewController {
             return
         }
         
+        state = .loading
+        
         RequestManager.shared.getWeatherData(for: location.coordinates) { [weak self] response in
             guard let self = self else {return}
             
-            self.tableView.isHidden = false
-            self.refreshControl.endRefreshing()
-            self.activityIndicator.stopAnimating()
-            
             switch response {
             case .success(let weatherData):
-                self.setupView(with: weatherData.current)
-                self.days = weatherData.days
-                self.tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+                self.state = .success(weatherData)
+
             case .failure(let error):
-                print(error.localizedDescription)
+                self.state = .error(error.localizedDescription)
             }
         }
     }
@@ -136,7 +182,7 @@ private extension WeatherDetailViewController {
             guard let self = self else {return}
             
             if let error = error {
-                self.activityIndicator.stopAnimating()
+                self.state = .error(error.localizedDescription)
             } else if let location = location {
                 self.location = location
                 self.loadData()
