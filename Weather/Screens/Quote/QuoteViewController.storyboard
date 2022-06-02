@@ -22,14 +22,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yVo-1D-e6p">
-                                <rect key="frame" x="80" y="715" width="254" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Reload"/>
-                                <connections>
-                                    <action selector="enterAction:" destination="puW-dY-6bZ" eventType="touchUpInside" id="CjK-tz-Sjx"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBz-H6-NMv">
                                 <rect key="frame" x="30" y="762" width="354" height="31"/>
                                 <state key="normal" title="Button"/>
@@ -41,16 +33,24 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOd-en-626">
+                                <rect key="frame" x="50" y="715" width="314" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Reload"/>
+                                <connections>
+                                    <action selector="enterAction:" destination="puW-dY-6bZ" eventType="touchUpInside" id="Noz-Kt-glx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jg6-w6-L8W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Hyc-px-DZz" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="24" id="0fM-hR-ubY"/>
+                            <constraint firstItem="GBz-H6-NMv" firstAttribute="top" secondItem="oOd-en-626" secondAttribute="bottom" constant="16" id="2fq-fe-6Z1"/>
+                            <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="oOd-en-626" secondAttribute="trailing" constant="50" id="F9O-vl-PXA"/>
+                            <constraint firstItem="oOd-en-626" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="50" id="G6D-o1-dmu"/>
                             <constraint firstItem="Jg6-w6-L8W" firstAttribute="bottom" secondItem="GBz-H6-NMv" secondAttribute="bottom" constant="20" id="IAj-Rq-2e3"/>
                             <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="GBz-H6-NMv" secondAttribute="trailing" constant="30" id="Ncp-vU-Vey"/>
-                            <constraint firstItem="yVo-1D-e6p" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="80" id="RTa-ve-fTV"/>
-                            <constraint firstItem="GBz-H6-NMv" firstAttribute="top" secondItem="yVo-1D-e6p" secondAttribute="bottom" constant="16" id="WT0-pN-RHe"/>
-                            <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="yVo-1D-e6p" secondAttribute="trailing" constant="80" id="XI5-vS-Zup"/>
                             <constraint firstItem="Hyc-px-DZz" firstAttribute="top" secondItem="Jg6-w6-L8W" secondAttribute="top" constant="80" id="gdg-o6-Ux2"/>
                             <constraint firstItem="GBz-H6-NMv" firstAttribute="leading" secondItem="Jg6-w6-L8W" secondAttribute="leading" constant="30" id="qgk-GG-cxe"/>
                             <constraint firstItem="Jg6-w6-L8W" firstAttribute="trailing" secondItem="Hyc-px-DZz" secondAttribute="trailing" constant="24" id="w0I-h9-AQ0"/>
@@ -88,14 +88,6 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="df5-HP-eZY">
-                                            <rect key="frame" x="174" y="117" width="66" height="31"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Add"/>
-                                            <connections>
-                                                <action selector="buttonTapped" destination="UCr-VT-aUF" eventType="touchUpInside" id="wEr-ut-Hxp"/>
-                                            </connections>
-                                        </button>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="quote" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fk5-fI-O6b">
                                             <rect key="frame" x="20" y="67" width="374" height="34"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -109,16 +101,24 @@
                                                 <action selector="close:" destination="UCr-VT-aUF" eventType="touchUpInside" id="j9U-5h-Xmk"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyU-S5-EAl">
+                                            <rect key="frame" x="80" y="125" width="254" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                            <connections>
+                                                <action selector="buttonTapped" destination="UCr-VT-aUF" eventType="touchUpInside" id="Cia-mA-hka"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <viewLayoutGuide key="safeArea" id="DMb-Af-6MX"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="fGt-af-jWp" firstAttribute="top" secondItem="DMb-Af-6MX" secondAttribute="top" constant="10" id="1eW-i7-FIG"/>
-                                        <constraint firstItem="df5-HP-eZY" firstAttribute="top" secondItem="Fk5-fI-O6b" secondAttribute="bottom" constant="16" id="1yW-IA-M4G"/>
-                                        <constraint firstItem="df5-HP-eZY" firstAttribute="leading" secondItem="DMb-Af-6MX" secondAttribute="leading" constant="174" id="3mY-6g-rjB"/>
                                         <constraint firstItem="Fk5-fI-O6b" firstAttribute="top" secondItem="oYx-3q-ahh" secondAttribute="bottom" constant="16" id="4B2-MQ-pFH"/>
                                         <constraint firstItem="Fk5-fI-O6b" firstAttribute="leading" secondItem="DMb-Af-6MX" secondAttribute="leading" constant="20" id="C8c-Iy-f3Z"/>
-                                        <constraint firstItem="df5-HP-eZY" firstAttribute="centerX" secondItem="Fk5-fI-O6b" secondAttribute="centerX" id="amx-dC-5Dp"/>
+                                        <constraint firstItem="eyU-S5-EAl" firstAttribute="top" secondItem="Fk5-fI-O6b" secondAttribute="bottom" constant="24" id="QHA-OZ-HKv"/>
+                                        <constraint firstItem="DMb-Af-6MX" firstAttribute="trailing" secondItem="eyU-S5-EAl" secondAttribute="trailing" constant="80" id="X5z-Af-Irt"/>
+                                        <constraint firstItem="eyU-S5-EAl" firstAttribute="leading" secondItem="DMb-Af-6MX" secondAttribute="leading" constant="80" id="ext-DK-dhc"/>
                                         <constraint firstItem="oYx-3q-ahh" firstAttribute="top" secondItem="DMb-Af-6MX" secondAttribute="top" constant="30" id="pGC-tS-EVz"/>
                                         <constraint firstItem="oYx-3q-ahh" firstAttribute="leading" secondItem="DMb-Af-6MX" secondAttribute="leading" constant="16" id="twN-Sg-wh8"/>
                                         <constraint firstItem="DMb-Af-6MX" firstAttribute="trailing" secondItem="oYx-3q-ahh" secondAttribute="trailing" constant="16" id="wHD-cE-M97"/>
@@ -132,7 +132,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="button" destination="df5-HP-eZY" id="NII-BP-Ayf"/>
                         <outlet property="field" destination="Fk5-fI-O6b" id="0cT-Ed-Glr"/>
                     </connections>
                 </viewController>

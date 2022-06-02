@@ -63,6 +63,7 @@
 		51A24BF42836A65700EE423F /* QuoteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuoteViewController.storyboard; sourceTree = "<group>"; };
 		51A24BF62836A66500EE423F /* QuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewController.swift; sourceTree = "<group>"; };
 		51A24BFA2836BA1600EE423F /* AddQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuote.swift; sourceTree = "<group>"; };
+		51A24BFC2848E54600EE423F /* ZA.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ZA.gpx; sourceTree = "<group>"; };
 		C58BBAB82C8AD9BB5756E50F /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,6 +203,7 @@
 		514EB19127FDB240006B239F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				51A24BFC2848E54600EE423F /* ZA.gpx */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

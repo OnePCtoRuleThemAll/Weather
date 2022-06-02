@@ -19,9 +19,7 @@ class WeatherDetailViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+        
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -31,6 +29,7 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var errorMessageLabel: UILabel!
 
+    @IBOutlet weak var likeButton: UIBarButtonItem!
     // MARK: - Variables
     var place: Place?
     var refreshControl = UIRefreshControl()
@@ -80,12 +79,13 @@ private extension WeatherDetailViewController {
         }
     }
     
-    @IBAction func addToFavorites(_ sender: Any) {
+    @IBAction func addToFavorites(_ sender: UIButton) {
         let defaults = UserDefaults.standard
         var placesArray = defaults.object(forKey: "Favorites") as? [String] ?? [String]()
         if let currentPlace = location?.city {
             if !placesArray.contains(currentPlace) {
                 placesArray.append(currentPlace)
+                likeButton.setBackgroundImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal, barMetrics: .defaultPrompt)
             }
         }
         defaults.set(placesArray, forKey: "Favorites")
@@ -97,7 +97,6 @@ private extension WeatherDetailViewController {
 private extension WeatherDetailViewController {
     func setupTableView() {
         tableView.isHidden = true
-        activityIndicator.startAnimating()
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(loadData), for: .valueChanged)
         
@@ -136,20 +135,17 @@ private extension WeatherDetailViewController {
         switch state {
             
         case .loading:
-            activityIndicator.startAnimating()
             tableView.isHidden = true
             emptyView.isHidden = true
             
         case .error(let message):
             refreshControl.endRefreshing()
-            activityIndicator.stopAnimating()
             tableView.isHidden = true
             emptyView.isHidden = false
             errorMessageLabel.text = message
             
         case .success(let weatherData):
             refreshControl.endRefreshing()
-            activityIndicator.stopAnimating()
             tableView.isHidden = false
             emptyView.isHidden = true
             setupView(with: weatherData.current)
@@ -194,6 +190,7 @@ private extension WeatherDetailViewController {
             }
         }
     }
+    
 }
 
 // MARK: - Table View Data Source

@@ -27,7 +27,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ab1-dr-PW9">
-                                        <rect key="frame" x="161" y="389" width="92" height="31"/>
+                                        <rect key="frame" x="150" y="389" width="114" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Refresh"/>
                                         <connections>
@@ -42,8 +42,8 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="ab1-dr-PW9" firstAttribute="top" secondItem="aTC-C1-PuR" secondAttribute="bottom" constant="16" id="7bt-GS-TKz"/>
-                                    <constraint firstItem="ab1-dr-PW9" firstAttribute="leading" secondItem="xyp-sq-euI" secondAttribute="leading" constant="161" id="Aix-6B-9LU"/>
-                                    <constraint firstAttribute="trailing" secondItem="ab1-dr-PW9" secondAttribute="trailing" constant="161" id="BRB-fm-OIn"/>
+                                    <constraint firstItem="ab1-dr-PW9" firstAttribute="leading" secondItem="xyp-sq-euI" secondAttribute="leading" constant="150" id="Aix-6B-9LU"/>
+                                    <constraint firstAttribute="trailing" secondItem="ab1-dr-PW9" secondAttribute="trailing" constant="150" id="BRB-fm-OIn"/>
                                     <constraint firstAttribute="trailing" secondItem="aTC-C1-PuR" secondAttribute="trailing" constant="24" id="W1G-JM-psy"/>
                                     <constraint firstItem="ItE-78-XaG" firstAttribute="centerX" secondItem="aTC-C1-PuR" secondAttribute="centerX" id="Wdb-bW-qOl"/>
                                     <constraint firstItem="aTC-C1-PuR" firstAttribute="centerX" secondItem="xyp-sq-euI" secondAttribute="centerX" id="fBo-Sn-mIi"/>
@@ -122,21 +122,15 @@
                                     <outlet property="dataSource" destination="Z13-vY-53s" id="NNg-fb-HyR"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="RP7-pB-Lhh">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iaU-BN-jVj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="EsO-FV-5hR" firstAttribute="bottom" secondItem="iaU-BN-jVj" secondAttribute="bottom" id="3Dl-e3-t5W"/>
                             <constraint firstItem="EsO-FV-5hR" firstAttribute="top" secondItem="wZo-Cl-lgM" secondAttribute="top" constant="88" id="J5c-3o-EVu"/>
-                            <constraint firstItem="RP7-pB-Lhh" firstAttribute="centerY" secondItem="iaU-BN-jVj" secondAttribute="centerY" id="TLZ-88-qpt"/>
                             <constraint firstItem="iaU-BN-jVj" firstAttribute="trailing" secondItem="xyp-sq-euI" secondAttribute="trailing" id="WDr-CP-boN"/>
                             <constraint firstItem="iaU-BN-jVj" firstAttribute="bottom" secondItem="xyp-sq-euI" secondAttribute="bottom" id="aqN-Sv-w9V"/>
                             <constraint firstItem="EsO-FV-5hR" firstAttribute="leading" secondItem="iaU-BN-jVj" secondAttribute="leading" id="j5u-Bl-gZ9"/>
-                            <constraint firstItem="RP7-pB-Lhh" firstAttribute="centerX" secondItem="iaU-BN-jVj" secondAttribute="centerX" id="lm3-jC-zTH"/>
                             <constraint firstItem="EsO-FV-5hR" firstAttribute="trailing" secondItem="iaU-BN-jVj" secondAttribute="trailing" id="nLw-5T-NVy"/>
                             <constraint firstItem="xyp-sq-euI" firstAttribute="leading" secondItem="iaU-BN-jVj" secondAttribute="leading" id="vrt-LP-Aov"/>
                             <constraint firstItem="xyp-sq-euI" firstAttribute="top" secondItem="iaU-BN-jVj" secondAttribute="top" id="xVD-kD-BBH"/>
@@ -160,11 +154,11 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="RP7-pB-Lhh" id="aax-e9-Zg0"/>
                         <outlet property="dateLabel" destination="ULe-yO-cUd" id="GOp-yb-xiS"/>
                         <outlet property="emptyView" destination="xyp-sq-euI" id="wER-RU-HfN"/>
                         <outlet property="errorMessageLabel" destination="aTC-C1-PuR" id="ZGY-UO-uFw"/>
                         <outlet property="feelsLikeLabel" destination="Z9Z-LC-x7C" id="lEm-I2-4kw"/>
+                        <outlet property="likeButton" destination="4Kd-BR-N87" id="wG5-Go-RIU"/>
                         <outlet property="locationLabel" destination="zbb-hc-77e" id="ZH5-lJ-ncx"/>
                         <outlet property="tableView" destination="EsO-FV-5hR" id="lDR-aA-tRl"/>
                         <outlet property="temperatureLabel" destination="ewV-4f-zWw" id="Bk2-cd-7C3"/>

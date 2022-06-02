@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class MapScreenController: UIViewController {
     
@@ -26,4 +27,7 @@ private extension MKMapView {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionradius, longitudinalMeters: regionradius)
         setRegion(coordinateRegion, animated: true)
     }
+    
 }
+
+
