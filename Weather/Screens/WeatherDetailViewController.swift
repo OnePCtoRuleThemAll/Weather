@@ -40,6 +40,7 @@ class WeatherDetailViewController: UIViewController {
             reloadState()
         }
     }
+    var placesArray = UserDefaults.standard.object(forKey: "Favorites") as? [String] ?? [String]()
     
     // MARK: - Lifecycle
     
@@ -80,15 +81,13 @@ private extension WeatherDetailViewController {
     }
     
     @IBAction func addToFavorites(_ sender: UIButton) {
-        let defaults = UserDefaults.standard
-        var placesArray = defaults.object(forKey: "Favorites") as? [String] ?? [String]()
         if let currentPlace = location?.city {
             if !placesArray.contains(currentPlace) {
                 placesArray.append(currentPlace)
                 likeButton.setBackgroundImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal, barMetrics: .defaultPrompt)
             }
         }
-        defaults.set(placesArray, forKey: "Favorites")
+        UserDefaults.standard.set(placesArray, forKey: "Favorites")
     }
 }
 
@@ -102,6 +101,7 @@ private extension WeatherDetailViewController {
         
         tableView.register(UINib(nibName: WeatherTableViewCell.classString, bundle: nil),
                            forCellReuseIdentifier: WeatherTableViewCell.classString)
+        setButtonBackground()
     }
     
     func setupView(with currentWeather: CurrentWeather) {
@@ -153,6 +153,17 @@ private extension WeatherDetailViewController {
             tableView.reloadSections(IndexSet(integer: 0), with: .fade)
 
             
+        }
+    }
+    
+    func setButtonBackground() {
+        if let curPlace = location?.city {
+            if placesArray.contains(curPlace) {
+                likeButton.setBackgroundImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal, barMetrics: .defaultPrompt)
+            }
+            else {
+                likeButton.setBackgroundImage(UIImage(systemName: "hand.thumbsup"), for: .normal, barMetrics: .defaultPrompt)
+            }
         }
     }
 }

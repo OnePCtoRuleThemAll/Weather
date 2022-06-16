@@ -141,16 +141,18 @@
                         <imageReference key="landscapeImage" image="umbrella" catalog="system" symbolScale="large" renderingMode="template"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Weather" id="Lgp-ly-ee5">
-                        <barButtonItem key="leftBarButtonItem" title="Add to favorites" image="hand.thumbsup" catalog="system" id="4Kd-BR-N87">
-                            <connections>
-                                <action selector="addToFavorites:" destination="Z13-vY-53s" id="vLn-4P-Xq7"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="LVi-DZ-dcR">
-                            <connections>
-                                <action selector="search:" destination="Z13-vY-53s" id="IlH-TE-KuW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="search" id="LVi-DZ-dcR">
+                                <connections>
+                                    <action selector="search:" destination="Z13-vY-53s" id="IlH-TE-KuW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Add to favorites" image="hand.thumbsup" catalog="system" id="4Kd-BR-N87">
+                                <connections>
+                                    <action selector="addToFavorites:" destination="Z13-vY-53s" id="vLn-4P-Xq7"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

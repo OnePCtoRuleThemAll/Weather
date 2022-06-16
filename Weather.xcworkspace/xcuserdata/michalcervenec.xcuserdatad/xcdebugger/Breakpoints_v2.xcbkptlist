@@ -14,8 +14,8 @@
             filePath = "Weather/Screens/WeatherDetailViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "addToFavorites(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -66,6 +66,114 @@
             endingLineNumber = "41"
             landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Weather/Screens/WeatherDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "WeatherDetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850 - c387c5b6603fcf17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather.WeatherDetailViewController.emptyView.getter : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "Weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michalcervenec/Desktop/prax/Weather/Weather/Screens/WeatherDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850 - 3325988a56a45763"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather.WeatherDetailViewController.emptyView.setter : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "Weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michalcervenec/Desktop/prax/Weather/Weather/Screens/WeatherDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850 - d0d026c4d0c9a514"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather.WeatherDetailViewController.emptyView.modify : Swift.Optional&lt;__C.UIView&gt;"
+                  moduleName = "Weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michalcervenec/Desktop/prax/Weather/Weather/Screens/WeatherDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850 - 18e582d349741747"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather.WeatherDetailViewController.emptyView.modify : Swift.Optional&lt;__C.UIView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michalcervenec/Desktop/prax/Weather/Weather/Screens/WeatherDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850 - 5092230ed3e082f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather.WeatherDetailViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Weather.WeatherDetailViewController"
+                  moduleName = "Weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michalcervenec/Desktop/prax/Weather/Weather/Screens/WeatherDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "507">
+               </Location>
+               <Location
+                  uuid = "891FBA60-4C7D-491A-BB84-66B5837D4850 - fffc245bef11eaab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Weather.WeatherDetailViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Weather.WeatherDetailViewController&gt;"
+                  moduleName = "Weather"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/michalcervenec/Desktop/prax/Weather/Weather/Screens/WeatherDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "464">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
